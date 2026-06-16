@@ -3,6 +3,11 @@ export type TeamMember = {
   role: string;
   description: string;
   initials: string;
+  socialLinks: {
+    linkedin?: string;
+    github?: string;
+    twitter?: string;
+  };
 };
 
 export type PhilosophyPillar = {
@@ -13,32 +18,46 @@ export type PhilosophyPillar = {
 
 export const teamMembers: TeamMember[] = [
   {
-    name: "Team Member 1",
-    role: "Co-Founder & Product Lead",
+    name: "Chhabi Aale",
+    role: "Co-Founder & Accessibility Lead",
     description:
-      "Drives product vision and ensures every feature decision centers on real human needs.",
+      "Leads our accessibility efforts, ensuring that our products are inclusive and usable by everyone, regardless of ability.",
     initials: "TM",
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/chhabi-aale-74300b1ba/",
+    },
   },
   {
-    name: "Team Member 2",
-    role: "Co-Founder & Tech Lead",
+    name: "Arun Shrestha",
+    role: "Co-Founder & Research, Documentation Lead",
     description:
-      "Architects the engineering foundation and champions technical excellence across the stack.",
+      "Leads user research and documentation, ensuring our products are grounded in real-world insights and accessible to all.",
     initials: "TM",
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/arun-shrestha-33413b227/",
+    },
   },
   {
-    name: "Team Member 3",
-    role: "Co-Founder & Design Lead",
+    name: "Rohan Raj Poudel",
+    role: "ML Engineer & Tech Lead",
     description:
-      "Shapes the user experience, bringing accessibility principles into every design decision.",
+      "Leads the technical implementation of our AI-driven solutions, ensuring they are robust, scalable, and ethical.",
     initials: "TM",
+    socialLinks: {
+      linkedin: "https://linkedin.com/in/rcrrrpoudel",
+      github: "https://github.com/rohanrajpoudel",
+    },
   },
   {
-    name: "Team Member 4",
-    role: "Co-Founder & Research Lead",
+    name: "Dhiraj Kumar Chaurasiya",
+    role: "App Developer",
     description:
-      "Grounds the team in real-world research, translating user needs into actionable insights.",
+      "Focuses on building user-friendly applications that bring our AI solutions to life, ensuring they are accessible and impactful.",
     initials: "TM",
+    socialLinks: {
+      linkedin: "https://linkedin.com/in/chaurasiyadhiraj",
+      github: "https://github.com/dhirajchaurasiya",
+    },
   },
 ];
 

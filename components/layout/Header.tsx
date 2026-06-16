@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ButtonLink } from "@/components/ui/Button";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Approach", href: "#philosophy" },
-  { label: "Work", href: "#product" },
-  { label: "Team", href: "#team" },
+  { label: "About", href: "/#about" },
+  { label: "Approach", href: "/#philosophy" },
+  { label: "Product", href: "/product" },
+  { label: "Team", href: "/team" },
 ];
 
 function LogoIcon({ className = "" }: { className?: string }) {
@@ -96,31 +97,35 @@ export default function Header() {
             aria-label="Main navigation"
           >
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="px-3 py-2 text-sm text-ink-muted hover:text-ink rounded-md transition-colors duration-150"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
-            <ButtonLink href="#contact" variant="primary" size="sm">
+          <div className="hidden md:flex items-center gap-2">
+            <ThemeToggle />
+            <ButtonLink href="/#contact" variant="primary" size="sm">
               Get in Touch
             </ButtonLink>
           </div>
 
-          <button
-            className="md:hidden p-2 rounded-md text-ink-muted hover:text-ink hover:bg-border transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-expanded={isOpen}
-            aria-controls="mobile-menu"
-            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-          >
-            <HamburgerIcon open={isOpen} />
-          </button>
+          <div className="flex md:hidden items-center gap-1">
+            <ThemeToggle />
+            <button
+              className="p-2 rounded-md text-ink-muted hover:text-ink hover:bg-border transition-colors"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            >
+              <HamburgerIcon open={isOpen} />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -134,18 +139,18 @@ export default function Header() {
             aria-label="Mobile navigation"
           >
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
                 className="px-3 py-3 text-sm text-ink-muted hover:text-ink rounded-md transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="pt-2 border-t border-border mt-2">
               <ButtonLink
-                href="#contact"
+                href="/#contact"
                 variant="primary"
                 size="sm"
                 className="w-full justify-center"

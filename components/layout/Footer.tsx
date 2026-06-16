@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 const footerLinks = [
-  { label: "About", href: "#about" },
-  { label: "Approach", href: "#philosophy" },
-  { label: "Work", href: "#product" },
-  { label: "Team", href: "#team" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Approach", href: "/#philosophy" },
+  { label: "Product", href: "/product" },
+  { label: "Team", href: "/team" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 function FooterLogoIcon() {
@@ -42,12 +44,12 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
           <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <FooterLogoIcon />
               <span className="font-bold text-ink text-base tracking-tight">
                 Access<span className="text-primary">Code</span>
               </span>
-            </div>
+            </Link>
             <p className="text-xs text-ink-subtle max-w-xs leading-relaxed">
               Technology that creates access for everyone.
             </p>
@@ -55,13 +57,13 @@ export default function Footer() {
 
           <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer navigation">
             {footerLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="text-sm text-ink-muted hover:text-ink transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>

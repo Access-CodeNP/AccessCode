@@ -3,7 +3,9 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
 
+@theme {
   --color-canvas: #fafaf9;
   --color-surface: #ffffff;
   --color-ink: #1c1917;
@@ -28,6 +30,24 @@
   --foreground: var(--color-ink);
 }
 
+[data-theme="dark"] {
+  --color-canvas: #0c0a09;
+  --color-surface: #1c1917;
+  --color-ink: #fafaf9;
+  --color-ink-muted: #a8a29e;
+  --color-ink-subtle: #78716c;
+  --color-border: #292524;
+  --color-border-strong: #44403c;
+  --color-primary: #6366f1;
+  --color-primary-dark: #818cf8;
+  --color-primary-light: #1e1b4b;
+  --color-primary-text: #a5b4fc;
+  --color-accent: #14b8a6;
+  --color-accent-dark: #2dd4bf;
+  --color-accent-light: #042f2e;
+  --color-accent-text: #5eead4;
+}
+
 *,
 *::before,
 *::after {
@@ -45,6 +65,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
+  transition: background-color 0.2s ease, color 0.15s ease;
 }
 
 :focus-visible {
