@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Product",
@@ -63,9 +64,12 @@ const journeySteps: JourneyStep[] = [
 ];
 
 const screenshots = [
-  { id: 1, filename: "screenshot-1.png", label: "Screenshot 1" },
-  { id: 2, filename: "screenshot-2.png", label: "Screenshot 2" },
-  { id: 3, filename: "screenshot-3.png", label: "Screenshot 3" },
+  { id: 1, filename: "screenshot-1.jpg", label: "Screenshot 1" },
+  { id: 2, filename: "screenshot-2.jpg", label: "Screenshot 2" },
+  { id: 3, filename: "screenshot-3.jpg", label: "Screenshot 3" },
+  { id: 4, filename: "screenshot-4.jpg", label: "Screenshot 4" },
+  { id: 5, filename: "screenshot-5.jpg", label: "Screenshot 5" },
+
 ];
 
 export default function ProductPage() {
@@ -152,19 +156,17 @@ export default function ProductPage() {
             >
               {screenshots.map((s) => (
                 <li
-                  key={s.id}
-                  className="aspect-video bg-canvas border-2 border-dashed border-border rounded-2xl flex flex-col items-center justify-center gap-3 p-6 text-center"
-                >
-                  <span className="text-ink-subtle">
-                    <ImagePlaceholderIcon />
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-ink-muted">{s.label}</p>
-                    <p className="text-xs text-ink-subtle font-mono mt-1">
-                      /public/images/product/{s.filename}
-                    </p>
-                  </div>
-                </li>
+  key={s.id}
+  className="overflow-hidden rounded-2xl border border-border"
+>
+  <Image
+    src={`/images/product/${s.filename}`}
+    alt={s.label}
+    width={1200}
+    height={675}
+    className="w-full h-auto"
+  />
+</li>
               ))}
             </ul>
           </div>
