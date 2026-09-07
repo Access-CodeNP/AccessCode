@@ -46,14 +46,14 @@ const journeySteps: JourneyStep[] = [
   {
     step: "Prototype",
     description:
-      "Built early concepts to test our assumptions. Validated core ideas with potential users and refined our direction based on real feedback.",
-    status: "done",
+      "Built early concepts to test our assumptions. Validated core ideas with potential users and refined our direction based on real feedback. A solid prototype has been build using Gemini API and further research is being conducted to improve the product.",
+    status: "active",
   },
   {
     step: "Development",
     description:
       "Actively building the product. Translating research and prototypes into a real, tested, accessible experience.",
-    status: "active",
+    status: "upcoming",
   },
   {
     step: "Launch",
@@ -64,11 +64,11 @@ const journeySteps: JourneyStep[] = [
 ];
 
 const screenshots = [
-  { id: 1, filename: "screenshot-1.jpg", label: "Screenshot 1" },
-  { id: 2, filename: "screenshot-2.jpg", label: "Screenshot 2" },
-  { id: 3, filename: "screenshot-3.jpg", label: "Screenshot 3" },
-  { id: 4, filename: "screenshot-4.jpg", label: "Screenshot 4" },
-  { id: 5, filename: "screenshot-5.jpg", label: "Screenshot 5" },
+  { id: 1, filename: "screenshot.jpg", label: "Screenshot 1" },
+  // { id: 2, filename: "screenshot-2.jpg", label: "Screenshot 2" },
+  // { id: 3, filename: "screenshot-3.jpg", label: "Screenshot 3" },
+  // { id: 4, filename: "screenshot-4.jpg", label: "Screenshot 4" },
+  // { id: 5, filename: "screenshot-5.jpg", label: "Screenshot 5" },
 
 ];
 
@@ -144,7 +144,7 @@ export default function ProductPage() {
             <SectionHeading
               label="In Progress"
               title="Product Screenshots"
-              description="Screenshots will appear here as the product takes shape."
+              description="Screenshots will appear here as the product takes shape. We are currently working on the prototype."
               id="screenshots-heading"
               className="mb-12"
             />
@@ -156,17 +156,19 @@ export default function ProductPage() {
             >
               {screenshots.map((s) => (
                 <li
-  key={s.id}
-  className="overflow-hidden rounded-2xl border border-border"
->
-  <Image
-    src={`/images/product/${s.filename}`}
-    alt={s.label}
-    width={1200}
-    height={675}
-    className="w-full h-auto"
-  />
-</li>
+                  key={s.id}
+                  className="aspect-video bg-canvas border-2 border-dashed border-border rounded-2xl flex flex-col items-center justify-center gap-3 p-6 text-center"
+                >
+                  <span className="text-ink-subtle">
+                    <ImagePlaceholderIcon />
+                  </span>
+                  <div>
+                    <p className="text-sm font-medium text-ink-muted">{s.label}</p>
+                    <p className="text-xs text-ink-subtle font-mono mt-1">
+                      screenhot.jpg
+                    </p>
+                  </div>
+                </li>
               ))}
             </ul>
           </div>
@@ -194,22 +196,20 @@ export default function ProductPage() {
                 <li key={item.step} className="flex gap-8 pb-12 last:pb-0">
                   <div className="flex flex-col items-center">
                     <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm ${
-                        item.status === "done"
+                      className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm ${item.status === "done"
                           ? "bg-accent text-white"
                           : item.status === "active"
-                          ? "bg-primary text-white ring-4 ring-primary-light"
-                          : "bg-border text-ink-muted"
-                      }`}
+                            ? "bg-primary text-white ring-4 ring-primary-light"
+                            : "bg-border text-ink-muted"
+                        }`}
                       aria-label={`${item.step}: ${item.status}`}
                     >
                       {item.status === "done" ? <CheckIcon /> : <span>{i + 1}</span>}
                     </div>
                     {i < journeySteps.length - 1 && (
                       <div
-                        className={`w-0.5 flex-1 mt-2 ${
-                          item.status === "done" ? "bg-accent" : "bg-border"
-                        }`}
+                        className={`w-0.5 flex-1 mt-2 ${item.status === "done" ? "bg-accent" : "bg-border"
+                          }`}
                         aria-hidden="true"
                       />
                     )}
